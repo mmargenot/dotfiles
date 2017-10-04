@@ -1,6 +1,6 @@
 # show git branch
 export TERM='xterm-256color'
-export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2) \$ "
+export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
 
   # autocolor {{{
     alias ls='ls -G'
