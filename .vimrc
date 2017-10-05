@@ -31,7 +31,7 @@ endif
 
 packadd matchit
 
-" Make compatibale with dark terminal
+" Make compatible with dark terminal
 set background=dark
 
 filetype plugin indent on
@@ -54,11 +54,11 @@ set nowrapscan
 
 "backup/swp options
 set backup
-set backupdir=~/.vim/tmp/
-set dir=~/.vim/tmp//
+set backupdir=~/.vim/tmp//
+set dir=~/.vim/.swp//
 set history=200
 set undofile
-set undodir=~/.vim//
+set undodir=~/.vim/.undo//
 
 "usability
 set bs=indent,eol,start
