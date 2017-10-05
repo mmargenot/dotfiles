@@ -20,4 +20,4 @@ export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
   # }}}
 
   # extra goodies
-    alias vim-find='vim -o $(find . -iname "$@")'
+    alias vim-find='vim -o $(find . -iname "$@")' # open all files matching pattern in split 
