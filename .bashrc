@@ -18,3 +18,6 @@ export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
     alias la='ls -Alh'
     alias lr='ls -R'
   # }}}
+
+  # extra goodies
+    alias vim-find='vim -o $(find . -iname "$@")'
