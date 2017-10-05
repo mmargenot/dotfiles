@@ -11,3 +11,6 @@ Thumbs.db
 # folder view config files
 .DS_Store
 Desktop.ini
+
+# any old files
+*.old
