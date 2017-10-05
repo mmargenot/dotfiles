@@ -1,2 +1,13 @@
+# anything removed
 *~
+
+# jupyter notebook checkpoints
 .ipynbcheckpoints*
+
+# thumbnail cache files
+._*
+Thumbs.db
+
+# folder view config files
+.DS_Store
+Desktop.ini
