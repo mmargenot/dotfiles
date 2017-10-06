@@ -7,12 +7,6 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-" Only do this part when compiled with support for autocommands.
-
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -63,7 +57,8 @@ set undodir=~/.vim/.undo//
 "usability
 set bs=indent,eol,start
 set ruler
-set nu
+set number
+set mouse=a
 set scrolloff=10
 set cursorline
 set autoread
