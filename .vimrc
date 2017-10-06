@@ -22,9 +22,6 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-
-packadd matchit
-
 " Make compatible with dark terminal
 set background=dark
 
