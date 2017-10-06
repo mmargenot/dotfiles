@@ -4,6 +4,16 @@ export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
 # git autocomplete
 source /usr/share/bash-completion/completions/git
 
+# history settings
+shopt -s histappend
+export HISTCONTROL=ignoreboth
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTFILE=~/.bash_history
+
+# conveniences
   # autocolor {{{
     alias ls='ls -G'
     alias grep='grep --color=auto'
