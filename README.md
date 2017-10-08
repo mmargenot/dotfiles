@@ -1,2 +1,2 @@
 # dotfiles
-Settings
+Personalized system settings
