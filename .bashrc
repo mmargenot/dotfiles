@@ -7,7 +7,7 @@ is_mac=false
 
 # show git branch
 export TERM='xterm-256color'
-export PS1="\u@\h \w \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
+export PS1="\u@\h \W \$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
 # git autocomplete (some linux distros)
 $is_linux && source /usr/share/bash-completion/completions/git
 
