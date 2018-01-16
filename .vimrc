@@ -1,5 +1,14 @@
 set nocompatible
 
+"plug.vim
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
+
+call plug#end()
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -22,6 +31,8 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
+
+
 " Make compatible with dark terminal
 set background=dark
 
@@ -34,6 +45,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set smartindent
+au! FileType python setl nosmartindent
 set autoindent
 
 "search options
