@@ -1,0 +1,5 @@
+[terminal]
+default_shell = "ghostty"
+
+[worktrees]
+directory = "~/.herdr/worktrees"
