@@ -7,7 +7,7 @@ set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# zsh.config pins this version on PATH, so keep the two in sync.
+# Pinned so re-runs don't pull a newer node without the global language servers.
 NODE_VERSION="22.23.2"
 
 if [ "$(uname -s)" != "Darwin" ]; then
