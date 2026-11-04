@@ -36,6 +36,27 @@ npm_global() {
     fi
 }
 
+# Install the latest go to /usr/local/go with the official package from go.dev.
+install_go() {
+    local arch version url tmp
+    case "$(uname -m)" in
+        arm64) arch=arm64 ;;
+        x86_64) arch=amd64 ;;
+        *) echo "no go package for $(uname -m)" >&2; return 1 ;;
+    esac
+    version="$(curl -fsSL 'https://go.dev/VERSION?m=text' | sed -n 1p)"
+    url="https://dl.google.com/go/$version.darwin-$arch.pkg"
+    tmp="$(mktemp -d)"
+    curl -fsSL "$url" -o "$tmp/go.pkg"
+    if [ "$(shasum -a 256 "$tmp/go.pkg" | cut -d' ' -f1)" != "$(curl -fsSL "$url.sha256")" ]; then
+        echo "go download failed its checksum" >&2
+        rm -rf "$tmp"
+        return 1
+    fi
+    sudo installer -pkg "$tmp/go.pkg" -target /
+    rm -rf "$tmp"
+}
+
 # Homebrew
 if ! command -v brew >/dev/null 2>&1; then
     echo "Installing Homebrew"
@@ -97,8 +118,21 @@ npm_global typescript tsc
 npm_global typescript-language-server typescript-language-server
 npm_global pyright pyright-langserver
 
-brew_install go
-brew_install gopls
+if command -v go >/dev/null 2>&1 || [ -x /usr/local/go/bin/go ]; then
+    echo "go already installed"
+else
+    echo "Installing go"
+    install_go
+fi
+# A fresh install only reaches PATH in new shells.
+PATH="$PATH:/usr/local/go/bin"
+
+if command -v gopls >/dev/null 2>&1 || [ -x "$(go env GOPATH)/bin/gopls" ]; then
+    echo "gopls already installed"
+else
+    echo "Installing gopls"
+    go install golang.org/x/tools/gopls@latest
+fi
 
 # rustup is keg-only, so it isn't on PATH by default.
 brew_install rustup
