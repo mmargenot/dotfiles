@@ -48,6 +48,9 @@ link init.vim "$HOME/.config/nvim/init.vim"
 # git
 link git.config "$HOME/.gitconfig"
 
+# ruff
+link ruff.toml "$HOME/.config/ruff/ruff.toml"
+
 # herdr: mods are linked file by file so the stubs herdr generates beside them
 # stay out of the repo.
 link herdr/herdr-core/config.toml "$HOME/.config/herdr-core/config.toml"
