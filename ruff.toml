@@ -1,0 +1,9 @@
+# Global default, used only where a project has no ruff config of its own.
+# A project's config replaces this file entirely rather than merging with it.
+line-length = 79
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "TID"]
+
+[lint.flake8-tidy-imports]
+ban-relative-imports = "all"
